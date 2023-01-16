@@ -18,7 +18,7 @@ struct TaskView: View {
 //                Text("Status: \(viewModel.task.status?)")
                 HStack {
                     Button("Complete") {
-                        self.viewModel.completeTask()
+                        self.viewModel.completeTask(status: 1)
                     }
                     Button("Delete") {
                         self.viewModel.deleteTask(id: task.id ?? -1)

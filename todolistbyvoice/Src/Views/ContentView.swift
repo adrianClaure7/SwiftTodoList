@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var isMenuOpen: Bool = false
     @State var transcription: String = ""
-    var audioRecorder = AudioRecorder()
+//    var audioRecorder = AudioRecorderModel()
 
     var body: some View {
         HStack(alignment: .top) {
@@ -36,7 +36,6 @@ struct ContentView: View {
         }
 
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
