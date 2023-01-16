@@ -17,6 +17,18 @@
 		26866C8E2972522E00556302 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26866C8D2972522E00556302 /* SwiftUI.framework */; };
 		26866C8F2972545B00556302 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26866C8B297251D600556302 /* AppKit.framework */; };
 		26866C9129726B8900556302 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26866C9029726B8900556302 /* AudioRecorder.swift */; };
+		26E7674C2972E43300D51004 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E7674B2972E43300D51004 /* TaskView.swift */; };
+		26E7674E2972E8D000D51004 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E7674D2972E8D000D51004 /* TaskViewModel.swift */; };
+		26E767512972E90800D51004 /* TaskDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E767502972E90800D51004 /* TaskDAO.swift */; };
+		26E767532972E91900D51004 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E767522972E91900D51004 /* Task.swift */; };
+		26E767552972EB7D00D51004 /* SQLiteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E767542972EB7D00D51004 /* SQLiteHelper.swift */; };
+		26E7675A2972EF1E00D51004 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E767592972EECC00D51004 /* libsqlite3.tbd */; };
+		26E7675B2972EF2500D51004 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E767582972EECC00D51004 /* libsqlite3.0.tbd */; };
+		26E7675D297303A400D51004 /* ListTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E7675C297303A400D51004 /* ListTaskView.swift */; };
+		26E7675F2973063100D51004 /* ListTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E7675E2973063100D51004 /* ListTaskViewModel.swift */; };
+		26E767612973085800D51004 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E767602973085800D51004 /* AddTaskView.swift */; };
+		26E76763297308D800D51004 /* AddTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E76762297308D800D51004 /* AddTaskViewModel.swift */; };
+		26E767652974519600D51004 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E767642974519500D51004 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +64,18 @@
 		26866C8D2972522E00556302 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		26866C9029726B8900556302 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		26866C922972748C00556302 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		26E7674B2972E43300D51004 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		26E7674D2972E8D000D51004 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		26E767502972E90800D51004 /* TaskDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDAO.swift; sourceTree = "<group>"; };
+		26E767522972E91900D51004 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		26E767542972EB7D00D51004 /* SQLiteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteHelper.swift; sourceTree = "<group>"; };
+		26E767582972EECC00D51004 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		26E767592972EECC00D51004 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		26E7675C297303A400D51004 /* ListTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTaskView.swift; sourceTree = "<group>"; };
+		26E7675E2973063100D51004 /* ListTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTaskViewModel.swift; sourceTree = "<group>"; };
+		26E767602973085800D51004 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
+		26E76762297308D800D51004 /* AddTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewModel.swift; sourceTree = "<group>"; };
+		26E767642974519500D51004 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E7675A2972EF1E00D51004 /* libsqlite3.tbd in Frameworks */,
 				26866C8F2972545B00556302 /* AppKit.framework in Frameworks */,
+				26E7675B2972EF2500D51004 /* libsqlite3.0.tbd in Frameworks */,
 				26866C8E2972522E00556302 /* SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +131,7 @@
 		26866C5B29724D5D00556302 /* todolistbyvoice */ = {
 			isa = PBXGroup;
 			children = (
+				26E7674F2972E8F700D51004 /* DAO */,
 				26E7674A2972E1D800D51004 /* Utils */,
 				26E767492972E13700D51004 /* Models */,
 				26E767482972E12E00D51004 /* Database */,
@@ -147,6 +174,8 @@
 		26866C8A297251D600556302 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26E767582972EECC00D51004 /* libsqlite3.0.tbd */,
+				26E767592972EECC00D51004 /* libsqlite3.tbd */,
 				26866C8D2972522E00556302 /* SwiftUI.framework */,
 				26866C8B297251D600556302 /* AppKit.framework */,
 			);
@@ -157,6 +186,10 @@
 			isa = PBXGroup;
 			children = (
 				26866C5E29724D5D00556302 /* ContentView.swift */,
+				26E7674B2972E43300D51004 /* TaskView.swift */,
+				26E7675C297303A400D51004 /* ListTaskView.swift */,
+				26E767602973085800D51004 /* AddTaskView.swift */,
+				26E767642974519500D51004 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +197,9 @@
 		26E767462972E10800D51004 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				26E7674D2972E8D000D51004 /* TaskViewModel.swift */,
+				26E7675E2973063100D51004 /* ListTaskViewModel.swift */,
+				26E76762297308D800D51004 /* AddTaskViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -171,6 +207,7 @@
 		26E767482972E12E00D51004 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				26E767542972EB7D00D51004 /* SQLiteHelper.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -178,6 +215,7 @@
 		26E767492972E13700D51004 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				26E767522972E91900D51004 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +226,14 @@
 				26866C9029726B8900556302 /* AudioRecorder.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		26E7674F2972E8F700D51004 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				26E767502972E90800D51004 /* TaskDAO.swift */,
+			);
+			path = DAO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +366,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26E767612973085800D51004 /* AddTaskView.swift in Sources */,
+				26E76763297308D800D51004 /* AddTaskViewModel.swift in Sources */,
 				26866C9129726B8900556302 /* AudioRecorder.swift in Sources */,
+				26E7675F2973063100D51004 /* ListTaskViewModel.swift in Sources */,
+				26E7675D297303A400D51004 /* ListTaskView.swift in Sources */,
+				26E767512972E90800D51004 /* TaskDAO.swift in Sources */,
 				26866C5F29724D5D00556302 /* ContentView.swift in Sources */,
+				26E767652974519600D51004 /* CardView.swift in Sources */,
 				26866C5D29724D5D00556302 /* todolistbyvoiceApp.swift in Sources */,
+				26E7674E2972E8D000D51004 /* TaskViewModel.swift in Sources */,
+				26E767532972E91900D51004 /* Task.swift in Sources */,
+				26E7674C2972E43300D51004 /* TaskView.swift in Sources */,
+				26E767552972EB7D00D51004 /* SQLiteHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,16 +30,7 @@ struct ContentView: View {
             Spacer()
                         
             VStack {
-                   Text("Transcription: \(transcription)")
-                   Button("Start Recording") {
-                       self.audioRecorder.requestMicPermission()
-                   }
-                   Button("Stop Recording") {
-                       self.audioRecorder.stopRecording()
-                       self.audioRecorder.transcribeAudio { transcription in
-                           self.transcription = transcription
-                       }
-                   }
+                ListTaskView()
                }
             }
         }
@@ -52,3 +43,14 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+//Text("Transcription: \(transcription)")
+//Button("Start Recording") {
+//    self.audioRecorder.requestMicPermission()
+//}
+//Button("Stop Recording") {
+//    self.audioRecorder.stopRecording()
+//    self.audioRecorder.transcribeAudio { transcription in
+//        self.transcription = transcription
+//    }
+//}
