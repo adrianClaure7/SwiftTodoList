@@ -14,7 +14,7 @@ Viva Translate is a to-do list application that allows you to save tasks by text
 
 ## Getting Started
 
-- Download the application from the LINK
+- Download the application from https://drive.google.com/drive/u/0/folders/1fpn7KyfeXDHIRCsoPYgrPk8CrAtxSDsG
 - Open the application and create a new task
 - To add a task by text, type in the task in the text field provided and click on the 'Save' button
 - To add a task by voice, click on the microphone icon and record your task. Once done, click Stop button and audio will transcribe and appear in the textfield, then click on the 'Save' button
