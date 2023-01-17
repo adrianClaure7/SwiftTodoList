@@ -16,17 +16,18 @@ struct AddTaskView: View {
     var _onClose: () -> Void
     var task: Task? = nil
     @State var audioNamePath: String = String(describing: Date().timeIntervalSince1970)
-
+    @State var canSave = false
+    
     var body: some View {
         VStack {
             Text("Task Form")
-                 .font(.title)
-                 .padding()
-                 .padding(.bottom, 0)
+                .font(.title)
+                .padding()
+                .padding(.bottom, 0)
             Divider()
             Text("Task:")
-             .font(.headline)
-             .padding(.bottom, 0)
+                .font(.headline)
+                .padding(.bottom, 0)
             TextField("Task name", text: $title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
@@ -38,16 +39,12 @@ struct AddTaskView: View {
                         self.audioPath = task.audioPath ?? ""
                         self.description = task.description ?? ""
                     }
-                    
                 }
-            AudioRecorderView(audioNamePath: String(describing: Date().timeIntervalSince1970), _setTranscription: _setTranscription, _setAudioPath: _setAudioPath, timeRecording: "00.00", audioRecorder: AudioRecorderModel(audioNamePath: audioNamePath))
+            AudioRecorderView(audioNamePath: String(describing: Date().timeIntervalSince1970), _setTranscription: _setTranscription, _setAudioPath: _setAudioPath, timeRecording: "00.00", audioRecorder: AudioRecorderModel(audioNamePath: audioNamePath), recordedAudioURL: URL(string: task?.audioPath ?? ""))
             HStack {
                 Button(action: {
                     if self.task != nil {
-                        var currentAudioPath = self.task?.audioPath
-                        if !audioPath.isEmpty {
-                            currentAudioPath = audioPath
-                        }
+                        let currentAudioPath = audioPath
                         let taskToUpdate = Task(id: self.task?.id, title: $title.wrappedValue, description: $description.wrappedValue, status: self.task?.status, audioPath: currentAudioPath)
                         viewModel.updateTask(task: taskToUpdate)
                         self.showingAlert = true
@@ -63,27 +60,28 @@ struct AddTaskView: View {
                         _onCreate(newTask)
                     }
                     _onClose()
-                    }) {
-                        Text("Save")
-                    }
-                    .buttonStyle(GreenButtonStyle())
-                    .alert(isPresented: $showingAlert) {
-                        let complementaryText: String = self.task != nil ? "updated" : "added"
-                        return Alert(title: Text("Task \(complementaryText)"), message: Text("\"\(title)\" has been \(complementaryText) to your task list."), dismissButton: .default(Text("OK")))
-                    }
-                    Button(action: {
-                        _onClose()
-                    }) {
-                        Text("Cancel")
-                    }
-                    .buttonStyle(RedButtonStyle())
+                }) {
+                    Text("Save")
                 }
-                .padding(.all, 25)
+                .buttonStyle(GreenButtonStyle(isEnabled: !self.title.isEmpty))
+                .alert(isPresented: $showingAlert) {
+                    let complementaryText: String = self.task != nil ? "updated" : "added"
+                    return Alert(title: Text("Task \(complementaryText)"), message: Text("\"\(title)\" has been \(complementaryText) to your task list."), dismissButton: .default(Text("OK")))
+                }
+                .disabled(self.title.isEmpty)
+                Button(action: {
+                    _onClose()
+                }) {
+                    Text("Cancel")
+                }
+                .buttonStyle(RedButtonStyle())
+            }
+            .padding(.all, 25)
         }
         .background(Color.white)
         .cornerRadius(8)
         .shadow(radius: 8)
-       
+        
     }
     
     func _setAudioPath(audioPath: String) {
@@ -93,6 +91,4 @@ struct AddTaskView: View {
     func _setTranscription(transcription: String) {
         self.title = transcription
     }
-    
-    
 }

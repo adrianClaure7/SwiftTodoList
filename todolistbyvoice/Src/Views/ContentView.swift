@@ -10,8 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var isMenuOpen: Bool = false
     @State var transcription: String = ""
-//    var audioRecorder = AudioRecorderModel()
-
+    
     var body: some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
@@ -19,22 +18,26 @@ struct ContentView: View {
                     .font(.headline)
                     .padding()
                 List {
-                    Text("Item 1")
-                    Text("Item 2")
-                    Text("Item 3")
+                    Button(action: {
+                        
+                    }) {
+                        Text("Task List")
+                    }
+                    .buttonStyle(BasicButtonStyle())
+                    .padding()
                 }
             }
             .frame(width: 150)
             .background(Color.gray)
             
             Spacer()
-                        
+            
             VStack {
                 ListTaskView()
-               }
             }
         }
-
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -42,14 +45,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-//Text("Transcription: \(transcription)")
-//Button("Start Recording") {
-//    self.audioRecorder.requestMicPermission()
-//}
-//Button("Stop Recording") {
-//    self.audioRecorder.stopRecording()
-//    self.audioRecorder.transcribeAudio { transcription in
-//        self.transcription = transcription
-//    }
-//}

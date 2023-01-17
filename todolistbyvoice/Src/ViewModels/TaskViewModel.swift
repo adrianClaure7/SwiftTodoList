@@ -13,12 +13,8 @@ class TaskViewModel: ObservableObject {
     func downloadAudioPath() {
         if !self.task.audioPath!.isEmpty {
             let fileURL = URL(string: self.task.audioPath!.replacingOccurrences(of: "file://", with: ""))
-
-            do {
-                NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: fileURL?.path ?? "")
-            } catch {
-                print("Error: \(error)")
-            }
+            
+            NSWorkspace.shared.selectFile(nil, inFileViewerRootedAtPath: fileURL?.path ?? "")
         }
     }
     

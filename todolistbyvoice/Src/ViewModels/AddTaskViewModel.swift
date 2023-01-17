@@ -15,7 +15,7 @@ class AddTaskViewModel: ObservableObject {
     func insertTask(task: Task) {
         taskDAO.insert(task)
     }
-
+    
     func updateTask(task: Task) {
         taskDAO.update(task)
     }

@@ -19,7 +19,7 @@ struct AudioRecorderView: View {
     @State var isPaused = false
     @State var recordedAudioURL: URL?
     @State var transcription: String = ""
-
+    
     var body: some View {
         VStack {
             if recordedAudioURL == nil {
@@ -54,7 +54,7 @@ struct AudioRecorderView: View {
         isPaused = false
         startTimer()
     }
-
+    
     func pauseRecording() {
         audioRecorder.pauseRecording()
         isPaused = true
@@ -83,9 +83,10 @@ struct AudioRecorderView: View {
             }
         }
     }
-
+    
     func deleteRecording() {
         audioRecorder.deleteRecording()
+        _setAudioPath("")
         recordedAudioURL = nil
         isRecording = false
         isPaused = false

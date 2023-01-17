@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
+import AppKit
 
 struct CardView: View {
     var task: Task
     var viewModel: TaskViewModel
     var _onDelete: (Int) -> Void
     var _onUpdate: (Task) -> Void
-
+    
     @State private var showMenu = false
     @State private var isChecked = false
     @State private var showDeleteAlert = false
-
+    @State private var showCopyAlert = false
+    
     var body: some View {
         VStack {
             Text(task.title)
@@ -80,6 +82,16 @@ struct CardView: View {
                                 Image(systemName: "icloud.and.arrow.down")
                                     .foregroundColor(.blue)
                             }
+                            Button(action: {
+                                copyToClipboard(audioPath: task.audioPath ?? "")
+                                self.showCopyAlert = true
+                            }) {
+                                Image(systemName: "doc.on.doc")
+                                    .foregroundColor(.purple)
+                            }
+                            .alert(isPresented: $showCopyAlert) {
+                                Alert(title: Text("Copy to Clipboard"), message: Text("The AudioPath is: \( task.audioPath ?? "")."), dismissButton: .default(Text("OK")))
+                            }
                         }
                         EditTaskDialogView(_onUpdate: _onUpdate, task: task)
                         Button (action: {
@@ -107,16 +119,23 @@ struct CardView: View {
         }
         
     }
+    
+    func copyToClipboard(audioPath: String) {
+        let pasteboard = NSPasteboard.general
+        pasteboard.clearContents()
+        pasteboard.setString(audioPath, forType: .string)
+    }
+    
 }
 
 struct EditTaskDialogView: View {
     @State private var showDialog = false
     var _onUpdate: (Task) -> Void
     var task: Task
-
+    
     var body: some View {
         Button(action: {
-           self.showDialog = true
+            self.showDialog = true
         }, label: {
             Image(systemName: "pencil")
                 .foregroundColor(.yellow)
@@ -125,7 +144,7 @@ struct EditTaskDialogView: View {
             AddTaskView(_onCreate: _onUpdate, _onClose: _onClose, task: task)
         }
     }
-
+    
     func _onClose() {
         self.showDialog = false
     }

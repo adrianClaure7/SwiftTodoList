@@ -9,7 +9,7 @@ import Foundation
 
 class ListTaskViewModel: ObservableObject {
     var taskDAO: TaskDAO
-
+    
     init() {
         taskDAO = TaskDAO()
     }

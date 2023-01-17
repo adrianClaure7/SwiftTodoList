@@ -17,7 +17,7 @@ struct ListTaskView: View {
     @State var tasks: [Task] = []
     @State var selectedTask: Task? = nil
     @State private var showDialog = false
-
+    
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -30,15 +30,15 @@ struct ListTaskView: View {
             Divider()
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(tasks, id: \.id) { task in
+                    ForEach(self.tasks, id: \.id) { task in
                         let taskViewModel = TaskViewModel(task: task, taskDAO: self.taskDAO)
                         CardView(task: task, viewModel: taskViewModel, _onDelete: _onDelete, _onUpdate: _onUpdate)
                     }
                 }
                 .onAppear {
-                    tasks = viewModel.getTasks()
+                    self.tasks = viewModel.getTasks()
                 }
-               .padding(.horizontal)
+                .padding(.horizontal)
             }
         }
     }
@@ -59,15 +59,15 @@ struct ListTaskView: View {
 struct NewTaskDialogView: View {
     @State private var showDialog = false
     var _onCreate: (Task) -> Void
-
+    
     var body: some View {
         VStack {
             Button(action: {
-               self.showDialog = true
+                self.showDialog = true
             }, label: {
-               Text("New Task")
+                Text("New Task")
             })
-            .buttonStyle(GreenButtonStyle())
+            .buttonStyle(GreenButtonStyle(isEnabled: true))
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
             .sheet(isPresented: $showDialog) {
                 AddTaskView(_onCreate: _onCreate, _onClose: _onClose)
@@ -76,7 +76,7 @@ struct NewTaskDialogView: View {
         }
         .padding(.top, 5)
     }
-
+    
     func _onClose() {
         self.showDialog = false
     }

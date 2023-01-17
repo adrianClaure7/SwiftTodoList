@@ -21,7 +21,7 @@ struct Task {
     var description: String?
     var status: Int?
     var audioPath: String?
-
+    
     // Initializer
     init(id: Int?, title: String, description: String?, status: Int?, audioPath: String?) {
         self.id = id
@@ -30,7 +30,7 @@ struct Task {
         self.status = status
         self.audioPath = audioPath
     }
-
+    
     func toMap() -> [String: Any] {
         return [
             "id": id as Any,
@@ -39,8 +39,8 @@ struct Task {
             "status": status as Any,
             "audio_path": audioPath as Any
         ]
-      }
-
+    }
+    
     static func convertToTasks(_ dictionaries: [[String: Any]]) -> [Task] {
         var tasks = [Task]()
         for dictionary in dictionaries {
@@ -55,7 +55,7 @@ struct Task {
         }
         return tasks
     }
-
+    
     func fromMap(map: TaskTable)->Task {
         return Task(
             id: map.id,
@@ -67,7 +67,7 @@ struct Task {
     }
     
     static var tableName: String = "Task"
-
+    
     static var createTableQuery: String = """
           CREATE TABLE IF NOT EXISTS \(tableName) (
             id INTEGER PRIMARY KEY AUTOINCREMENT,

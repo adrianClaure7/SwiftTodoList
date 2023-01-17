@@ -6,7 +6,7 @@ class AudioRecorderModel {
     var transcription: String = ""
     var audioRecorder: AVAudioRecorder!
     var audioNamePath: String
-
+    
     init(audioNamePath: String) {
         self.audioNamePath = audioNamePath
     }
@@ -24,7 +24,7 @@ class AudioRecorderModel {
     func currentTime() -> Int {
         return Int(audioRecorder == nil ? 0 : audioRecorder.currentTime)
     }
-
+    
     func checkMicAvailability() {
         let mic = AVCaptureDevice.default(for: .audio)
         if mic != nil {
@@ -34,7 +34,7 @@ class AudioRecorderModel {
             print("Microphone is not available")
         }
     }
-
+    
     func startRecording() {
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -61,15 +61,15 @@ class AudioRecorderModel {
         audioRecorder.record()
     }
     
-
+    
     func stopRecording() {
         audioRecorder.stop()
     }
-
+    
     func transcribeAudio(completion: @escaping (String) -> ()) {
         let recognizer = SFSpeechRecognizer()
         let request = SFSpeechURLRecognitionRequest(url: self.getFileURL())
-
+        
         recognizer?.recognitionTask(with: request) { (result, error) in
             if let error = error {
                 print("Error transcribing audio: \(error)")
@@ -83,21 +83,21 @@ class AudioRecorderModel {
     func deleteRecording() {
         
     }
-
+    
     func getFileURL() -> URL {
         let fileManager = FileManager.default
-            let dirPaths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-            let soundFileURL = dirPaths[0].appendingPathComponent("records/\(self.audioNamePath).m4a")
-
-            let dirURL = soundFileURL.deletingLastPathComponent()
-            if !fileManager.fileExists(atPath: dirURL.path) {
-                do {
-                    try fileManager.createDirectory(at: dirURL, withIntermediateDirectories: true, attributes: nil)
-                } catch {
-                    print("Error creating directory: \(error)")
-                }
+        let dirPaths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let soundFileURL = dirPaths[0].appendingPathComponent("records/\(self.audioNamePath).m4a")
+        
+        let dirURL = soundFileURL.deletingLastPathComponent()
+        if !fileManager.fileExists(atPath: dirURL.path) {
+            do {
+                try fileManager.createDirectory(at: dirURL, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Error creating directory: \(error)")
             }
-
-            return soundFileURL
+        }
+        
+        return soundFileURL
     }
 }
