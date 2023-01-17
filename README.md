@@ -39,6 +39,7 @@ Viva Translate is a to-do list application that allows you to save tasks by text
 
 ## Credits
 
+Repository: https://github.com/adrianClaure7/SwiftTodoList
 Development: Adrian Claure
 
 
